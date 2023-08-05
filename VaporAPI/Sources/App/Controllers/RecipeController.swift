@@ -25,10 +25,11 @@ struct RecipeController: RouteCollection {
     }
     
     // POST request for route /recipe
-    func create(req: Request) async throws -> RecipeModel {
+    func create(req: Request) async throws -> HTTPStatus {
         let recipe = try req.content.decode(RecipeModel.self)
         try await recipe.save(on: req.db)
-        return recipe
+        
+        return .ok
     }
     
     // PATCH request for route /recipe/id
@@ -75,6 +76,20 @@ struct RecipeController: RouteCollection {
         return recipe
     }
     
+    // PUT request /recipe route
+    func update2(req: Request) async throws -> HTTPStatus {
+        let recipe = try req.content.decode(RecipeModel.self)
+        
+        guard let recipeFromDB = try await RecipeModel.find(recipe.id, on: req.db) else {
+            throw Abort(.notFound)
+        }
+        
+        recipeFromDB.name = recipe.name
+        try await recipeFromDB.update(on: req.db)
+        
+        return .ok
+    }
+    
     // DELETE request /recipe/id route
     func delete(req: Request) async throws -> HTTPStatus {
         guard let recipe = try await RecipeModel.find(req.parameters.get("id"), on: req.db) else {
@@ -83,6 +98,6 @@ struct RecipeController: RouteCollection {
         
         try await recipe.delete(on: req.db)
         
-        return .noContent
+        return .ok
     }
 }

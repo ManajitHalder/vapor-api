@@ -24,6 +24,21 @@ final class AddUpdateVM: ObservableObject {
         recipeName = newRecipe.name
     }
     
+    func addUpdateAction(completion: @escaping () -> Void) {
+        Task {
+            do {
+                if isUpdating {
+                    try await updateRecipe()
+                } else {
+                    try await addRecipe()
+                }
+            } catch {
+                print("🤬 something worng in addUpdateAction: \(error)")
+            }
+            completion()
+        }
+    }
+    
     // Add a new recipe to the Recipe DB
     func addRecipe() async throws {
         let urlString = Constants.baseURL + Endpoints.recipe
@@ -37,19 +52,19 @@ final class AddUpdateVM: ObservableObject {
         try await HttpClient.shared.sendData(to: url, object: recipe, httpMethod: HttpMethods.POST.rawValue)
     }
     
-    func addUpdateAction(completion: @escaping () -> Void) {
-        Task {
-            do {
-                if isUpdating {
-                    // Update Recipe
-                } else {
-                    try await addRecipe()
-                }
-            } catch {
-                print("🤬 something worng: \(error)")
-            }
-            completion()
+    // Update a recipe
+    func updateRecipe() async throws {
+        var urlString = Constants.baseURL + Endpoints.recipe
+        if let recipeID = recipeID {
+            urlString = urlString + "/" + recipeID.uuidString
         }
+        
+        guard let url = URL(string: urlString) else {
+            throw HttpError.badURL
+        }
+        
+        let recipeToUpdate = Recipe(id: recipeID, name: recipeName)
+        try await HttpClient.shared.sendData(to: url, object: recipeToUpdate, httpMethod: HttpMethods.PUT.rawValue)
     }
 }
 

@@ -23,5 +23,26 @@ class RecipeListVM: ObservableObject {
             self.recipes = recipesFetched
         }
     }
+    
+    func delete(at offsets: IndexSet) {
+        offsets.forEach { i in
+            guard let recipeID = recipes[i].id else {
+                return
+            }
+            
+            guard let url = URL(string: Constants.baseURL + Endpoints.recipe + "/\(recipeID)") else {
+                return
+            }
+            
+            Task {
+                do {
+                    try await HttpClient.shared.delete(at: recipeID, url: url)
+                } catch {
+                    print("😇 error in delete \(error)")
+                }
+            }
+        }
+        recipes.remove(atOffsets: offsets)
+    }
 }
 

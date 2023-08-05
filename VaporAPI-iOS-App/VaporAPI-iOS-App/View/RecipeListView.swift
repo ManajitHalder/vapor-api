@@ -21,8 +21,8 @@ struct RecipeListView: View {
                             .font(.title3)
                             .foregroundColor(Color(.label))
                     }
-
                 }
+                .onDelete(perform: viewModel.delete )
             }
             .navigationTitle(Text("🍛 🥞 🍨 Recipes"))
             .toolbar {
