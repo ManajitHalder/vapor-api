@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C48D77FB2A78DE7D00888A1A /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48D77FA2A78DE7D00888A1A /* HttpClient.swift */; };
+		C4A758392A781F7700289E1C /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A758382A781F7700289E1C /* Recipe.swift */; };
+		C4A7583F2A78207D00289E1C /* RecipeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A7583E2A78207D00289E1C /* RecipeListView.swift */; };
+		C4A758412A78210900289E1C /* RecipeListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A758402A78210900289E1C /* RecipeListVM.swift */; };
+		C4B5E6462A7A0A35005E1621 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B5E6452A7A0A35005E1621 /* Constants.swift */; };
+		C4B5E6482A7A3005005E1621 /* ModalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B5E6472A7A3005005E1621 /* ModalType.swift */; };
+		C4B5E64A2A7A59A4005E1621 /* AddUpdateRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B5E6492A7A59A4005E1621 /* AddUpdateRecipe.swift */; };
+		C4B5E64C2A7A59BC005E1621 /* AddUpdateVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B5E64B2A7A59BC005E1621 /* AddUpdateVM.swift */; };
 		C4D5F8002A781B1B00578497 /* VaporAPI_iOS_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D5F7FF2A781B1B00578497 /* VaporAPI_iOS_AppApp.swift */; };
 		C4D5F8022A781B1B00578497 /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D5F8012A781B1B00578497 /* RecipeView.swift */; };
 		C4D5F8042A781B2200578497 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4D5F8032A781B2200578497 /* Assets.xcassets */; };
@@ -14,6 +22,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C48D77FA2A78DE7D00888A1A /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
+		C4A758382A781F7700289E1C /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		C4A7583E2A78207D00289E1C /* RecipeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListView.swift; sourceTree = "<group>"; };
+		C4A758402A78210900289E1C /* RecipeListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListVM.swift; sourceTree = "<group>"; };
+		C4B5E6452A7A0A35005E1621 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C4B5E6472A7A3005005E1621 /* ModalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalType.swift; sourceTree = "<group>"; };
+		C4B5E6492A7A59A4005E1621 /* AddUpdateRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUpdateRecipe.swift; sourceTree = "<group>"; };
+		C4B5E64B2A7A59BC005E1621 /* AddUpdateVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUpdateVM.swift; sourceTree = "<group>"; };
 		C4D5F7FC2A781B1B00578497 /* VaporAPI-iOS-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VaporAPI-iOS-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4D5F7FF2A781B1B00578497 /* VaporAPI_iOS_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaporAPI_iOS_AppApp.swift; sourceTree = "<group>"; };
 		C4D5F8012A781B1B00578497 /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
@@ -32,6 +48,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C48D77F92A78DE5B00888A1A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C48D77FA2A78DE7D00888A1A /* HttpClient.swift */,
+				C4B5E6452A7A0A35005E1621 /* Constants.swift */,
+				C4B5E6472A7A3005005E1621 /* ModalType.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		C4A758372A781F6900289E1C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C4A7583E2A78207D00289E1C /* RecipeListView.swift */,
+				C4B5E6492A7A59A4005E1621 /* AddUpdateRecipe.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C4D5F7F32A781B1B00578497 = {
 			isa = PBXGroup;
 			children = (
@@ -53,6 +88,8 @@
 			children = (
 				C4D5F80D2A781CBA00578497 /* Model */,
 				C4D5F80F2A781CD400578497 /* ViewModel */,
+				C4A758372A781F6900289E1C /* View */,
+				C48D77F92A78DE5B00888A1A /* Utilities */,
 				C4D5F7FF2A781B1B00578497 /* VaporAPI_iOS_AppApp.swift */,
 				C4D5F8012A781B1B00578497 /* RecipeView.swift */,
 				C4D5F8032A781B2200578497 /* Assets.xcassets */,
@@ -72,22 +109,16 @@
 		C4D5F80D2A781CBA00578497 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C4D5F80E2A781CC500578497 /* View */,
+				C4A758382A781F7700289E1C /* Recipe.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		C4D5F80E2A781CC500578497 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = View;
-			path = "New Group1";
 			sourceTree = "<group>";
 		};
 		C4D5F80F2A781CD400578497 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				C4A758402A78210900289E1C /* RecipeListVM.swift */,
+				C4B5E64B2A7A59BC005E1621 /* AddUpdateVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -162,7 +193,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4A758392A781F7700289E1C /* Recipe.swift in Sources */,
+				C4B5E6482A7A3005005E1621 /* ModalType.swift in Sources */,
 				C4D5F8022A781B1B00578497 /* RecipeView.swift in Sources */,
+				C4A7583F2A78207D00289E1C /* RecipeListView.swift in Sources */,
+				C4A758412A78210900289E1C /* RecipeListVM.swift in Sources */,
+				C4B5E64C2A7A59BC005E1621 /* AddUpdateVM.swift in Sources */,
+				C4B5E64A2A7A59A4005E1621 /* AddUpdateRecipe.swift in Sources */,
+				C4B5E6462A7A0A35005E1621 /* Constants.swift in Sources */,
+				C48D77FB2A78DE7D00888A1A /* HttpClient.swift in Sources */,
 				C4D5F8002A781B1B00578497 /* VaporAPI_iOS_AppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
